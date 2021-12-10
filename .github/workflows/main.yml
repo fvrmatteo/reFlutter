@@ -63,7 +63,7 @@ jobs:
          cp customEngine/src/out/android_release_arm64/lib.stripped/libflutter.so libflutter_arm64.so 2>/dev/null || :
          cp customEngine/src/out/android_release/lib.stripped/libflutter.so libflutter_arm.so 2>/dev/null || :
          cp customEngine/src/out/android_release_x64/lib.stripped/libflutter.so libflutter_x64.so 2>/dev/null || :
-         cp customEngine/src/out/android_jit_release_x86/lib.stripped/libflutter.so libflutter_x86.so 2>/dev/null || :
+         cp customEngine/src/out/android_release_x86/lib.stripped/libflutter.so libflutter_x86.so 2>/dev/null || :
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
