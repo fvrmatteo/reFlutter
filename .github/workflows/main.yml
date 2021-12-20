@@ -51,11 +51,13 @@ jobs:
           gclient sync
           reflutter ${{env.SNAPSHOT_HASH}} -l
           cd src/third_party/dart
+          echo 'reflutter' > REFLUTTER
           git add . && git commit -am "reflutter"
           git format-patch -1 HEAD --stdout > reflutter_dart.patch
           cp reflutter_dart.patch $ROOT_DIR
           cd $ROOT_DIR/customEngine
           cd src/third_party/boringssl
+          echo 'reflutter' > REFLUTTER
           git add . && git commit -am "reflutter"
           git format-patch -1 HEAD --stdout > reflutter_boringssl.patch
           cp reflutter_boringssl.patch $ROOT_DIR
