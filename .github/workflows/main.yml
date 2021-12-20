@@ -57,6 +57,12 @@ jobs:
           mv 0001-reflutter.patch reflutter_dart.patch
           cp reflutter_dart.patch $ROOT_DIR
           cd $ROOT_DIR/customEngine
+          cd src/third_party/boringssl
+          git add . && git commit -am "reflutter"
+          git format-patch -1 HEAD
+          mv 0001-reflutter.patch reflutter_boringssl.patch
+          cp reflutter_boringssl.patch $ROOT_DIR
+          cd $ROOT_DIR/customEngine
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
