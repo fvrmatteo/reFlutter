@@ -42,8 +42,7 @@ jobs:
           reflutter ${{env.SNAPSHOT_HASH}} -l
           echo 'reflutter' > REFLUTTER
           git add . && git commit -am "reflutter"
-          git format-patch -1 HEAD
-          mv 0001-reflutter.patch reflutter_engine.patch
+          git format-patch -1 HEAD --stdout > reflutter_engine.patch
           cp reflutter_engine.patch $ROOT_DIR
           cd $ROOT_DIR
           mkdir --parents customEngine
@@ -53,14 +52,12 @@ jobs:
           reflutter ${{env.SNAPSHOT_HASH}} -l
           cd src/third_party/dart
           git add . && git commit -am "reflutter"
-          git format-patch -1 HEAD
-          mv 0001-reflutter.patch reflutter_dart.patch
+          git format-patch -1 HEAD --stdout > reflutter_dart.patch
           cp reflutter_dart.patch $ROOT_DIR
           cd $ROOT_DIR/customEngine
           cd src/third_party/boringssl
           git add . && git commit -am "reflutter"
-          git format-patch -1 HEAD
-          mv 0001-reflutter.patch reflutter_boringssl.patch
+          git format-patch -1 HEAD --stdout > reflutter_boringssl.patch
           cp reflutter_boringssl.patch $ROOT_DIR
           cd $ROOT_DIR/customEngine
       - name: Release
