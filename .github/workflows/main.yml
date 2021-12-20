@@ -50,8 +50,10 @@ jobs:
           echo 'solutions = [{"managed": False,"name": "src/flutter","url": "'$ROOT_DIR/engine'","custom_deps": {},"deps_file": "DEPS","safesync_url": "",},]' > .gclient
           gclient sync
           reflutter ${{env.SNAPSHOT_HASH}} -l
+          cd src/third_party/dart
           git diff > reflutter_dart.patch
           cp reflutter_dart.patch $ROOT_DIR
+          cd $ROOT_DIR/customEngine
       - name: Install BuildDeps
         run: sudo customEngine/src/build/install-build-deps-android.sh --no-prompt
       # - name: ninja build libflutter
