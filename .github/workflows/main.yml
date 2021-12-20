@@ -56,7 +56,7 @@ jobs:
           git format-patch -1 HEAD --stdout > reflutter_dart.patch
           cp reflutter_dart.patch $ROOT_DIR
           cd $ROOT_DIR/customEngine
-          cd src/third_party/boringssl
+          cd src/third_party/boringssl/src
           echo 'reflutter' > REFLUTTER
           git add . && git commit -am "reflutter"
           git format-patch -1 HEAD --stdout > reflutter_boringssl.patch
